@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #C5FFF8;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #5FBDFF;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .btn {
+      flex: 1;
+      margin-right: 5px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0C356A;
+    }
+    .alert {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculator</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <label for="first">Enter first operand</label>
+        <input id="first" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label for="second">Enter second operand</label>
+        <input id="second" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" onclick="add()">Add</button>
+      <button type="button" class="btn btn-primary" onclick="subtract()">Subtract</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" onclick="multiply()">Multiply</button>
+      <button type="button" class="btn btn-primary" onclick="divide()">Divide</button>
+    </div>
+    <div id="result" class="alert alert-info" style="display: none;"></div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function add() {
+      var firstOp = parseInt(document.getElementById('first').value);
+      var secondOp = parseInt(document.getElementById('second').value);
+      var result = firstOp + secondOp;
+      document.getElementById('result').innerHTML = "Addition result: " + result;
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function subtract() {
+      var firstOp = parseInt(document.getElementById('first').value);
+      var secondOp = parseInt(document.getElementById('second').value);
+      var result = firstOp - secondOp;
+      document.getElementById('result').innerHTML = "Subtraction result: " + result;
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function multiply() {
+      var firstOp = parseInt(document.getElementById('first').value);
+      var secondOp = parseInt(document.getElementById('second').value);
+      var result = firstOp * secondOp;
+      document.getElementById('result').innerHTML = "Multiplication result: " + result;
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function divide() {
+      var firstOp = parseInt(document.getElementById('first').value);
+      var secondOp = parseInt(document.getElementById('second').value);
+      if (secondOp === 0) {
+        document.getElementById('result').innerHTML = "Error: Division by zero!";
+      } else {
+        var result = firstOp / secondOp;
+        document.getElementById('result').innerHTML = "Division result: " + result;
+      }
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
